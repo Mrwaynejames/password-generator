@@ -1,6 +1,5 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var output = []
 
 function rInteger(min,max) {
   if (!max) {
@@ -13,7 +12,7 @@ return Math.floor(min*(1 - mathR) + mathR*max)
 }
 
 function get(list) {
-  return list[rInteger(list.length)]
+  return list[rInteger(list.length )]
 }
 
 function generatePassword() {
@@ -27,33 +26,37 @@ function generatePassword() {
   } 
 
   var numbers = confirm("Include numbers in your password?")
+  var uCase = confirm("Include uppercase letters in your password?")
+  var lCase = confirm("Include lowercase in your password?")
+  var special = confirm("Include special characters in your password?")
+  
   var numList = [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",]
+  var symList = [ "!", "@", "#", "$", "%", "^", "&", "*"]
+  var lCaseList = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k",
+    "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+  var uCaseList = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", 
+  "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+ 
+  var output = []
+
   if(numbers === true) {
     output.push(numList)
   }
 
-  var uCase = confirm("Include uppercase letters in your password?")
-  var uCaseList = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", 
-  "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
   if(uCase === true) {
     output.push(uCaseList)
-}
+  }
 
-  var lCase = confirm("Include lowercase in your password?")
-  var lCaseList = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k",
-  "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
   if(lCase === true) {
     output.push(lCaseList)
   }
 
-  var special = confirm("Include special characters in your password?")
-  var symList = [ "!", "@", "#", "$", "%", "^", "&", "*"]
   if(special === true) {
     output.push(symList)
   }
 
-  if(output.lenth === 0) {
-    output.push(symList)
+  if (output.length === 0) {
+   output.push(symList)
   }
 
   var generatedPassword = ""
