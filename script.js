@@ -1,10 +1,23 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var outcome
-function generatePassword() {
 
+function rInteger(min,max) {
+  if (!max) {
+    max = min
+    min = 0
+  }
+
+var mathR = Math.random()
+return Math.floor(min*(1 - mathR) + mathR*max)
+}
+
+function get(list) {
+  return list[rInteger(list.length )]
+}
+
+function generatePassword() {
+ 
   var userinput = prompt("Please pick a password length between 8 and 128 characters")  
-   
   var pLength = parseInt(userinput)
   
   if (isNaN(pLength) || pLength < 8 || pLength > 128) {
@@ -26,29 +39,45 @@ function generatePassword() {
  
   var output = []
 
-  if(numbers === true) (
+  if(numbers === true) {
     output.push(numList)
-  )
+  }
 
-  if(uCase === true) (
+  if(uCase === true) {
     output.push(uCaseList)
 
-  )
-
-  if(lCase === true) (
-    output.push(lCaseList)
-  )
-
-    if(special === true) (
-      output.push(symList)
-    )
-  console.log(output)
 }
+
+  if(lCase === true) {
+    output.push(lCaseList)
+  }
+
+    if(special === true) {
+      output.push(symList)
+    }
+
+    if (output.length === 0) {
+      alert("Please choose at least 1 criteria")
+      return
+    }
+    var generatedPassword = ""
+
+    for (var i = 0; i < pLength; i++) {
+      var rList = get(output)
+      var randomchar = get(rList)
+      generatedPassword += randomchar
+    }
+
+
+  }
+
+
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+
 }
 
 

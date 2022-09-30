@@ -135,3 +135,27 @@ button[disabled] {
     font-size: 0.8rem;
   }
 }
+
+/*
+function generatePassword() {
+  var outcome = [];
+
+  var uCase = false;
+  if (confirm("Do you want uppercase letters")) {
+    uCase = true;
+    outcome.push(uppercase);
+  }
+
+  var lCase = false;
+  if (confirm("Do you want lowercase letters")) {
+    lcase = true;
+    outcome.push(lowercase);
+  }
+
+  var numbers = false;
+  if (confirm("Do you wants numbers")) {
+    numbers = true;
+    outcome.push(number);
+  }
+
+var special
