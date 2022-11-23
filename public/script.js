@@ -30,6 +30,14 @@ function generatePassword() {
   var lCase = confirm("Include lowercase in your password?")
   var special = confirm("Include special characters in your password?")
   
+  while(uCase === false && lCase === false && special === false && numbers === false) {
+    alert("You must choose at least one parameter");
+    var numbers = confirm("Include numbers in your password?")
+    var uCase = confirm("Include uppercase letters in your password?")
+    var lCase = confirm("Include lowercase in your password?")
+    var special = confirm("Include special characters in your password?")
+  }
+  
   var numList = [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",]
   var symList = [ "!", "@", "#", "$", "%", "^", "&", "*"]
   var lCaseList = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k",
